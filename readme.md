@@ -1,4 +1,4 @@
-xStitch.py
+# xStitch.py
 
 Starting with one image (Moira pixel spray), and moving toward identifying many images
 And listing the colours of string required to accompany a cross-stitch pattern
@@ -6,7 +6,9 @@ And listing the colours of string required to accompany a cross-stitch pattern
 This project will required Pillow (image library) and eventually tkinter (for user interface) - more research
 Build from bottom up
 
-Early steps:
+---
+
+## Early steps
 
 Take in an image file (think jpg or png) ~~~ DONE ~~~
 Take in desired size (with some buffer around stitched image!!!) - hardcoded for Moira
@@ -23,17 +25,18 @@ Provide a percentage for each colour, matched with the colour code
 
 Serve a place to identify each colour
 
+---
 
+### TODO
 
+- Develop a user interface for finding image, handing to program etc
+- Provide link to website to identify colours and/or find strings
+- Include support for coloured beads - essentially the same process with a different link
 
+---
 
+### Add Ons
 
-To Work On:
-Develop a user interface for finding image, handing to program etc
-Provide link to website to identify colours and/or find strings
-Include support for coloured beads - essentially the same process with a different link
-
-
-
-Addons:
 root.filename = filedialog.askopenfilename(initialdir="/", title="Select image", filetypes=(("jpeg files", "*.jpg"), ("all files", "*.*")))
+
+---
