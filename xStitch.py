@@ -27,14 +27,15 @@ colorsForDict = colorsForDict[-11:-1]
 
 # find the percentage of each of top ten colours
 colorPercents = []
-count.sort()
-colorRange = count[-11:-1]
+count.sort(reverse=True)
+colorRange = count[0:10]
 
-colorSum = sum(colorRange)
+colorSum = sum(count)
 for c in colorRange:
     percentage = (c / colorSum) * 100
     percentage = round(percentage, 2)
     colorPercents.append(percentage)
+colorPercents.sort(reverse=True)
 
 # creates/prints a dictionary containing percentages and hex code for each colour
 colorDict = dict(zip(colorPercents, colorsForDict))
