@@ -4,12 +4,12 @@ xStitch.py - an image to Cross Stitch colour helper
 """
 
 from tkinter import filedialog
-from tkinter import *
+import tkinter as tk
 from PIL import Image
 
 # Creates Tk object, and prompt to open an image file
 # Needs validation for image files
-root = Tk()
+root = tk.Tk()
 root.file = filedialog.askopenfile(parent=root, mode='rb', title="Choose Image")
 openFile = Image.open(root.file)
 openFileRGB = openFile.convert("RGB")
@@ -23,14 +23,27 @@ for i in range(len(colors)):
     count.append(new[0])
     colorsForDict.append(new[1])
 
-colorsForDict = colorsForDict[-11:-1]
+# filters white from the list
+w = False
+for c in colorsForDict:
+    if c[0] == 255 and c[1] == 255 and c[2] == 255:
+        colorsForDict = colorsForDict[1:11]
+        w = True
+        break
+    else:
+        colorsForDict = colorsForDict[0:10]
+        w = False
 
 # find the percentage of each of top ten colours
 colorPercents = []
 count.sort(reverse=True)
-colorRange = count[0:10]
 
-colorSum = sum(count)
+if w == False:
+    colorRange = count[0:10]
+elif w == True:
+    colorRange = count[1:11]
+
+colorSum = sum(colorRange)
 for c in colorRange:
     percentage = (c / colorSum) * 100
     percentage = round(percentage, 2)
